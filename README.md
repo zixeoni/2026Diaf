@@ -74,8 +74,9 @@
         
         // 지연 로딩을 위한 HTML 구조 변경
         if (isVideo(src)) {
-            // preload="none"을 통해 클릭 전까지 영상 로딩을 막습니다.
-            div.innerHTML = `<video src="${src}" muted playsinline loop preload="none"></video>`;
+    // wing13.mp4에 대한 썸네일 파일이 wing13.jpg라고 가정할 때
+    const thumb = src.replace('.mp4', '.jpg'); 
+    div.innerHTML = `<video src="${src}" poster="${thumb}" muted playsinline loop preload="none"></video>`;
         } else {
             // loading="lazy"로 브라우저가 화면에 나타날 때 이미지를 로드하게 합니다.
             div.innerHTML = `<img src="${src}" alt="Gallery Item" loading="lazy">`;

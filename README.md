@@ -88,10 +88,13 @@
         }
 
         function openMediaModal(src) {
-            document.getElementById('modalBody').className = 'modal-media';
-            document.getElementById('modalBody').innerHTML = isVideo(src) ? `<video src="${src}" class="modal-media" controls autoplay muted></video>` : `<img src="${src}" class="modal-media">`;
-            document.getElementById('modal').classList.add('show');
-        }
+    document.getElementById('modalBody').className = 'modal-media';
+    // 아래 코드에서 <video> 태그 부분에 loop 속성을 추가했습니다.
+    document.getElementById('modalBody').innerHTML = isVideo(src) 
+        ? `<video src="${src}" class="modal-media" controls autoplay muted loop></video>` 
+        : `<img src="${src}" class="modal-media">`;
+    document.getElementById('modal').classList.add('show');
+}
 
         function closeModal() {
             document.getElementById('modal').classList.remove('show');
